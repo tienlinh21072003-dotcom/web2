@@ -2,11 +2,69 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>Diva Nails and Spa - Professional Nail Salon</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        // Inline function to ensure it's available immediately - with extensive debugging
+        function toggleMobileMenu() {
+            console.log('🔵 toggleMobileMenu() called');
+            
+            const hamburgerMenu = document.getElementById('hamburgerMenu');
+            const navMenu = document.getElementById('navMenu');
+            
+            console.log('Hamburger element:', hamburgerMenu);
+            console.log('Nav menu element:', navMenu);
+            
+            if (!hamburgerMenu) {
+                alert('Hamburger button not found!');
+                console.error('❌ Hamburger button not found!');
+                return;
+            }
+            
+            if (!navMenu) {
+                alert('Nav menu not found!');
+                console.error('❌ Nav menu not found!');
+                return;
+            }
+            
+            const isActive = navMenu.classList.contains('active');
+            console.log('Current active state:', isActive);
+            console.log('Current classes:', navMenu.className);
+            
+            if (isActive) {
+                // Close menu
+                navMenu.classList.remove('active');
+                hamburgerMenu.classList.remove('active');
+                document.body.style.overflow = '';
+                console.log('✅ Menu CLOSED');
+            } else {
+                // Open menu
+                navMenu.classList.add('active');
+                hamburgerMenu.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                
+                // Force display
+                navMenu.style.display = 'flex';
+                navMenu.style.visibility = 'visible';
+                navMenu.style.opacity = '1';
+                navMenu.style.transform = 'translateX(0)';
+                
+                console.log('✅ Menu OPENED');
+                console.log('Menu computed display:', window.getComputedStyle(navMenu).display);
+                console.log('Menu computed visibility:', window.getComputedStyle(navMenu).visibility);
+                console.log('Menu computed transform:', window.getComputedStyle(navMenu).transform);
+            }
+        }
+        
+        // Test function - call this from console to test
+        window.testMenu = function() {
+            console.log('🧪 Testing menu...');
+            toggleMobileMenu();
+        };
+    </script>
 </head>
 <body>
     <!-- Header -->
@@ -17,7 +75,7 @@
                     <img src="New folder/Logo/Logo on Ecru White_PNG.png" alt="Diva Nails and Spa" class="logo-image">
                 </div>
                 
-                <button class="hamburger-menu" id="hamburgerMenu" aria-label="Toggle menu" onclick="toggleMobileMenu()">
+                <button class="hamburger-menu" id="hamburgerMenu" aria-label="Toggle menu" onclick="toggleMobileMenu(); return false;" type="button">
                     <span></span>
                     <span></span>
                     <span></span>
