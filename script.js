@@ -296,61 +296,88 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Mobile menu toggle
-document.addEventListener('DOMContentLoaded', function() {
+// Mobile menu toggle - Global function for onclick
+function toggleMobileMenu() {
     const hamburgerMenu = document.getElementById('hamburgerMenu');
     const navMenu = document.getElementById('navMenu');
     
-    console.log('Hamburger menu element:', hamburgerMenu);
-    console.log('Nav menu element:', navMenu);
+    if (!hamburgerMenu || !navMenu) {
+        console.error('Menu elements not found!');
+        return;
+    }
     
-    if (hamburgerMenu && navMenu) {
+    const isActive = navMenu.classList.contains('active');
+    
+    if (isActive) {
+        // Close menu
+        navMenu.classList.remove('active');
+        hamburgerMenu.classList.remove('active');
+        document.body.style.overflow = '';
+        console.log('Menu closed');
+    } else {
+        // Open menu
+        navMenu.classList.add('active');
+        hamburgerMenu.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        console.log('Menu opened');
+    }
+}
+
+// Mobile menu toggle - Ensure it works on all devices
+(function() {
+    function initMobileMenu() {
+        const hamburgerMenu = document.getElementById('hamburgerMenu');
+        const navMenu = document.getElementById('navMenu');
+        
+        if (!hamburgerMenu || !navMenu) {
+            console.warn('Mobile menu elements not found, retrying...');
+            setTimeout(initMobileMenu, 100);
+            return;
+        }
+        
+        console.log('✅ Mobile menu initialized');
+        
+        // Hamburger button click (backup for onclick)
         hamburgerMenu.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
-            
-            console.log('Hamburger clicked!');
-            
-            hamburgerMenu.classList.toggle('active');
-            navMenu.classList.toggle('active');
-            
-            const isActive = navMenu.classList.contains('active');
-            console.log('Menu active:', isActive);
-            
-            // Prevent body scroll when menu is open
-            if (isActive) {
-                document.body.style.overflow = 'hidden';
-            } else {
-                document.body.style.overflow = '';
-            }
+            toggleMobileMenu();
         });
         
         // Close menu when clicking on a link
         const navLinks = navMenu.querySelectorAll('a');
         navLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                console.log('Nav link clicked, closing menu');
-                hamburgerMenu.classList.remove('active');
+            link.addEventListener('click', function() {
                 navMenu.classList.remove('active');
+                hamburgerMenu.classList.remove('active');
                 document.body.style.overflow = '';
             });
         });
         
-        // Close menu when clicking outside (but not on hamburger)
+        // Close menu when clicking outside
         document.addEventListener('click', function(e) {
             if (navMenu.classList.contains('active')) {
                 if (!hamburgerMenu.contains(e.target) && !navMenu.contains(e.target)) {
-                    console.log('Click outside, closing menu');
-                    hamburgerMenu.classList.remove('active');
-                    navMenu.classList.remove('active');
-                    document.body.style.overflow = '';
+                    toggleMobileMenu();
                 }
             }
         });
-    } else {
-        console.error('Hamburger menu or nav menu not found!');
+        
+        // Close menu on ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                toggleMobileMenu();
+            }
+        });
     }
-});
+    
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initMobileMenu);
+    } else {
+        initMobileMenu();
+    }
+})();
 
 // Product quick view functionality
 const quickViewButtons = document.querySelectorAll('.quick-view');
