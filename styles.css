@@ -1831,20 +1831,28 @@ body {
         justify-content: center;
     }
     
-    /* Products Section Mobile */
+    /* Products Section Mobile - 2 Columns */
     .products-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
         padding: 0 10px;
     }
     
     .product-card {
-        margin: 0 auto;
+        margin: 0;
         max-width: 100%;
     }
     
     .product-card-image {
-        height: 250px;
+        height: 200px;
+    }
+    
+    .product-card-title {
+        font-size: 0.95rem;
+    }
+    
+    .product-card-price {
+        font-size: 0.9rem;
     }
     
     /* Message Trigger Mobile */
@@ -2054,19 +2062,24 @@ body {
         left: 40px;
     }
     
-    /* Products Extra Small */
+    /* Products Extra Small - Keep 2 Columns */
     .products-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
-        padding: 0 5px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        padding: 0 8px;
     }
     
     .product-card-image {
-        height: 220px;
+        height: 180px;
     }
     
     .product-card-title {
-        font-size: 1.1rem;
+        font-size: 0.85rem;
+        line-height: 1.3;
+    }
+    
+    .product-card-price {
+        font-size: 0.85rem;
     }
     
     /* Contact Extra Small */
