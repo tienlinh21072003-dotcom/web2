@@ -28,7 +28,7 @@ body {
     padding: 10px 0;
     text-align: center;
     position: relative;
-    z-index: 1000;
+    z-index: 10002;
 }
 
 .banner-content span {
@@ -43,7 +43,7 @@ body {
     background-color: #000;
     position: sticky;
     top: 0;
-    z-index: 999;
+    z-index: 10000;
     border-bottom: 1px solid #333;
 }
 
@@ -124,10 +124,12 @@ body {
     background: transparent;
     border: none;
     cursor: pointer;
-    padding: 5px;
+    padding: 8px 5px;
     gap: 5px;
-    z-index: 1001;
+    z-index: 10001;
     position: relative;
+    outline: none;
+    -webkit-tap-highlight-color: rgba(0, 212, 255, 0.3);
 }
 
 .hamburger-menu span {
@@ -1734,13 +1736,17 @@ body {
         padding: 20px 0;
         transform: translateX(-100%);
         transition: transform 0.3s ease;
-        z-index: 1000;
+        z-index: 9999;
         border-bottom: 2px solid rgba(0, 212, 255, 0.3);
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        max-height: calc(100vh - 80px);
+        overflow-y: auto;
+        display: flex;
     }
     
     .nav-menu.active {
         transform: translateX(0);
+        display: flex;
     }
     
     .nav-menu li {
