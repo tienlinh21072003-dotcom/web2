@@ -10,6 +10,10 @@ body {
     background-color: #000;
     color: #fff;
     overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
 }
 
 .container {
@@ -1847,12 +1851,34 @@ body {
         height: 200px;
     }
     
-    .product-card-title {
-        font-size: 0.95rem;
+    .product-info {
+        padding: 15px;
     }
     
-    .product-card-price {
+    .product-info h3 {
+        font-size: 1rem;
+        margin-bottom: 8px;
+    }
+    
+    .service-description {
+        font-size: 0.85rem;
+        line-height: 1.4;
+        margin-bottom: 12px;
+    }
+    
+    .view-detail-btn {
+        padding: 12px 20px;
         font-size: 0.9rem;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .quick-view {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+        min-height: 44px;
     }
     
     /* Message Trigger Mobile */
@@ -1900,6 +1926,10 @@ body {
     }
     
     /* Collections Mobile */
+    .collections-section {
+        padding: 60px 0;
+    }
+    
     .collections-grid {
         grid-template-columns: 1fr;
         gap: 20px;
@@ -1908,6 +1938,248 @@ body {
     
     .collection-card {
         height: 280px;
+    }
+    
+    .collection-content {
+        padding: 25px 20px;
+    }
+    
+    .collection-content h3 {
+        font-size: 1.5rem;
+    }
+    
+    .collection-content p {
+        font-size: 1rem;
+        margin-bottom: 15px;
+    }
+    
+    .collection-price {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+    
+    .collection-btn {
+        padding: 12px 25px;
+        font-size: 0.95rem;
+        min-height: 44px;
+    }
+    
+    /* Promotions Section Mobile */
+    .promotions-section {
+        padding: 60px 0;
+    }
+    
+    .promotions-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 15px;
+    }
+    
+    .promotion-card {
+        border-radius: 15px;
+    }
+    
+    .promotion-overlay {
+        padding: 20px;
+    }
+    
+    .promotion-overlay h3 {
+        font-size: 1.3rem;
+    }
+    
+    .promotion-overlay p {
+        font-size: 1rem;
+    }
+    
+    .promo-note {
+        font-size: 0.85rem;
+    }
+    
+    /* Payment Section Mobile */
+    .payment-section {
+        padding: 60px 0;
+    }
+    
+    .payment-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 0 15px;
+    }
+    
+    .payment-card {
+        padding: 20px;
+        border-radius: 15px;
+    }
+    
+    .payment-card img {
+        max-width: 280px;
+        margin-bottom: 12px;
+    }
+    
+    .payment-label {
+        font-size: 1.1rem;
+    }
+    
+    .payment-note {
+        padding: 15px;
+        margin-top: 30px;
+        font-size: 0.9rem;
+    }
+    
+    /* Diva Promises Section Mobile */
+    .promises-section {
+        padding: 60px 0;
+    }
+    
+    .promises-image {
+        margin: 30px auto;
+        padding: 15px;
+        border-radius: 15px;
+    }
+    
+    .promises-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 15px;
+        margin-top: 30px;
+    }
+    
+    .promise-card {
+        padding: 25px 20px;
+        border-radius: 15px;
+    }
+    
+    .promise-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+    
+    .promise-card h3 {
+        font-size: 1.15rem;
+        margin-bottom: 12px;
+    }
+    
+    .promise-card p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+    
+    .fairness-note {
+        padding: 20px;
+        margin-top: 40px;
+        border-radius: 15px;
+    }
+    
+    .fairness-note h3 {
+        font-size: 1.4rem;
+        margin-bottom: 12px;
+    }
+    
+    .fairness-note p {
+        font-size: 1rem;
+    }
+    
+    /* Price List Section Mobile */
+    .prices-section {
+        padding: 60px 0;
+    }
+    
+    .price-image {
+        margin: 30px auto;
+        padding: 15px;
+        border-radius: 15px;
+    }
+    
+    .price-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 15px;
+        margin-top: 30px;
+    }
+    
+    .price-category {
+        padding: 20px 15px;
+        border-radius: 15px;
+    }
+    
+    .price-category h3 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+        padding-bottom: 12px;
+    }
+    
+    .price-items {
+        gap: 12px;
+    }
+    
+    .price-item {
+        padding: 10px 0;
+    }
+    
+    .service-name {
+        font-size: 0.95rem;
+    }
+    
+    .service-price {
+        font-size: 1rem;
+    }
+    
+    .price-note {
+        padding: 15px;
+        margin-top: 30px;
+        font-size: 0.9rem;
+    }
+    
+    /* Review Section Mobile */
+    .review-section {
+        padding: 60px 0;
+    }
+    
+    .review-content {
+        padding: 0 20px;
+    }
+    
+    .review-content h2 {
+        font-size: 2rem;
+        margin-bottom: 15px;
+        line-height: 1.2;
+    }
+    
+    .review-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 8px;
+    }
+    
+    .discount {
+        padding: 4px 10px;
+        font-size: 1rem;
+    }
+    
+    .review-text {
+        font-size: 0.95rem;
+        margin-bottom: 20px;
+    }
+    
+    .qr-code-box {
+        padding: 20px;
+        margin: 20px 0;
+        border-radius: 15px;
+    }
+    
+    .scan-text {
+        font-size: 1rem;
+        margin-bottom: 12px;
+    }
+    
+    .qr-code {
+        max-width: 200px;
+    }
+    
+    .review-footer {
+        font-size: 0.9rem;
+        margin-top: 15px;
     }
     
     /* Section Headers Mobile */
@@ -1935,7 +2207,41 @@ body {
     
     .contact-grid {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 25px;
+    }
+    
+    .contact-card {
+        padding: 25px 20px;
+        border-radius: 15px;
+        min-height: auto;
+    }
+    
+    .contact-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+    
+    .contact-card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+    
+    .contact-card p {
+        font-size: 1rem;
+        margin-bottom: 8px;
+        word-wrap: break-word;
+    }
+    
+    .contact-card span {
+        font-size: 0.9rem;
+    }
+    
+    .cta-button {
+        min-height: 44px;
+        padding: 12px 30px;
+        font-size: 0.95rem;
     }
     
     /* Cart Mobile */
@@ -2082,15 +2388,198 @@ body {
         font-size: 0.85rem;
     }
     
+    .service-description {
+        font-size: 0.75rem;
+        line-height: 1.4;
+    }
+    
+    .view-detail-btn {
+        padding: 10px 15px;
+        font-size: 0.85rem;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .quick-view {
+        padding: 10px 15px;
+        font-size: 0.85rem;
+        min-height: 44px;
+    }
+    
+    /* Collections Extra Small */
+    .collection-card {
+        height: 250px;
+    }
+    
+    .collection-content {
+        padding: 20px 15px;
+    }
+    
+    .collection-content h3 {
+        font-size: 1.3rem;
+    }
+    
+    .collection-content p {
+        font-size: 0.9rem;
+    }
+    
+    .collection-price {
+        font-size: 1.2rem;
+    }
+    
+    .collection-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        min-height: 44px;
+    }
+    
+    /* Promotions Extra Small */
+    .promotion-overlay h3 {
+        font-size: 1.2rem;
+    }
+    
+    .promotion-overlay p {
+        font-size: 0.95rem;
+    }
+    
+    /* Payment Extra Small */
+    .payment-card img {
+        max-width: 240px;
+    }
+    
+    .payment-label {
+        font-size: 1rem;
+    }
+    
+    /* Promise Cards Extra Small */
+    .promise-card {
+        padding: 20px 15px;
+    }
+    
+    .promise-card h3 {
+        font-size: 1.1rem;
+    }
+    
+    .promise-card p {
+        font-size: 0.85rem;
+    }
+    
+    /* Price List Extra Small */
+    .price-category {
+        padding: 18px 12px;
+    }
+    
+    .price-category h3 {
+        font-size: 1.2rem;
+    }
+    
+    .service-name {
+        font-size: 0.9rem;
+    }
+    
+    .service-price {
+        font-size: 0.95rem;
+    }
+    
+    /* Review Extra Small */
+    .review-content h2 {
+        font-size: 1.75rem;
+    }
+    
+    .review-subtitle {
+        font-size: 1rem;
+    }
+    
+    .qr-code {
+        max-width: 180px;
+    }
+    
     /* Contact Extra Small */
     .contact-grid {
         grid-template-columns: 1fr;
         gap: 20px;
     }
     
+    .contact-card {
+        padding: 20px 15px;
+    }
+    
+    .contact-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+    }
+    
+    .contact-card h3 {
+        font-size: 1.1rem;
+    }
+    
+    .contact-card p {
+        font-size: 0.95rem;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    .cta-button {
+        min-height: 44px;
+        padding: 10px 25px;
+        font-size: 0.9rem;
+    }
+    
     .contact-form {
         padding: 20px 15px;
         margin: 15px 5px;
+    }
+    
+    /* Sections Padding Extra Small */
+    .collections-section,
+    .promotions-section,
+    .payment-section,
+    .promises-section,
+    .prices-section,
+    .review-section {
+        padding: 50px 0;
+    }
+    
+    .section-header {
+        padding: 35px 15px 25px;
+    }
+    
+    .section-header h2 {
+        font-size: 1.5rem;
+        word-wrap: break-word;
+        line-height: 1.3;
+    }
+    
+    .section-header p {
+        font-size: 0.85rem;
+    }
+    
+    /* Global Mobile Optimizations */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    p, span, div, h1, h2, h3, h4, h5, h6, li {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    /* Ensure buttons and links are tappable */
+    button, a.btn, .view-detail-btn, .collection-btn, .cta-button, .submit-btn, .quick-view {
+        min-height: 44px;
+        min-width: 44px;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: rgba(0, 212, 255, 0.3);
+    }
+    
+    /* Prevent horizontal scroll */
+    .container, .hero-content, .section-header, .contact-content {
+        max-width: 100%;
+        width: 100%;
     }
     
     /* Footer Extra Small */
