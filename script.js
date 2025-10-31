@@ -296,30 +296,39 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Mobile menu toggle - Global function for onclick
+// Mobile menu toggle - Global function for onclick (with debugging)
 function toggleMobileMenu() {
+    console.log('=== toggleMobileMenu called ===');
     const hamburgerMenu = document.getElementById('hamburgerMenu');
     const navMenu = document.getElementById('navMenu');
     
+    console.log('Hamburger:', hamburgerMenu);
+    console.log('Nav Menu:', navMenu);
+    
     if (!hamburgerMenu || !navMenu) {
         console.error('Menu elements not found!');
+        alert('Menu elements not found! Check console.');
         return;
     }
     
     const isActive = navMenu.classList.contains('active');
+    console.log('Is active:', isActive);
+    console.log('Current classes:', navMenu.className);
     
     if (isActive) {
         // Close menu
         navMenu.classList.remove('active');
         hamburgerMenu.classList.remove('active');
         document.body.style.overflow = '';
-        console.log('Menu closed');
+        console.log('Menu closed - classes:', navMenu.className);
     } else {
         // Open menu
         navMenu.classList.add('active');
         hamburgerMenu.classList.add('active');
         document.body.style.overflow = 'hidden';
-        console.log('Menu opened');
+        console.log('Menu opened - classes:', navMenu.className);
+        console.log('Menu style:', window.getComputedStyle(navMenu).display);
+        console.log('Menu transform:', window.getComputedStyle(navMenu).transform);
     }
 }
 
