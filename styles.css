@@ -1786,9 +1786,9 @@ body {
         pointer-events: auto !important;
     }
     
-    /* Force menu to be above everything */
-    .nav-menu.active::before {
-        content: '';
+    /* Overlay background when menu is open - clickable to close */
+    .menu-overlay {
+        display: none;
         position: fixed;
         top: 0;
         left: 0;
@@ -1797,6 +1797,14 @@ body {
         background: rgba(0, 0, 0, 0.5);
         z-index: 9998;
         pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .menu-overlay.active {
+        display: block;
+        pointer-events: auto;
+        opacity: 1;
     }
     
     .nav-menu li {
