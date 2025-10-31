@@ -34,28 +34,36 @@
             console.log('Current active state:', isActive);
             console.log('Current classes:', navMenu.className);
             
+            const menuOverlay = document.getElementById('menuOverlay');
+            
             if (isActive) {
-                // Close menu
+                // Close menu - Remove all inline styles and classes
                 navMenu.classList.remove('active');
                 hamburgerMenu.classList.remove('active');
+                if (menuOverlay) menuOverlay.classList.remove('active');
                 document.body.style.overflow = '';
+                
+                // Clear inline styles to let CSS handle it
+                navMenu.style.display = '';
+                navMenu.style.visibility = '';
+                navMenu.style.opacity = '';
+                navMenu.style.transform = '';
+                
                 console.log('✅ Menu CLOSED');
             } else {
                 // Open menu
                 navMenu.classList.add('active');
                 hamburgerMenu.classList.add('active');
+                if (menuOverlay) menuOverlay.classList.add('active');
                 document.body.style.overflow = 'hidden';
                 
-                // Force display
+                // Force display when opening
                 navMenu.style.display = 'flex';
                 navMenu.style.visibility = 'visible';
                 navMenu.style.opacity = '1';
                 navMenu.style.transform = 'translateX(0)';
                 
                 console.log('✅ Menu OPENED');
-                console.log('Menu computed display:', window.getComputedStyle(navMenu).display);
-                console.log('Menu computed visibility:', window.getComputedStyle(navMenu).visibility);
-                console.log('Menu computed transform:', window.getComputedStyle(navMenu).transform);
             }
         }
         
@@ -80,6 +88,9 @@
                     <span></span>
                     <span></span>
                 </button>
+                
+                <!-- Overlay for closing menu -->
+                <div class="menu-overlay" id="menuOverlay" onclick="toggleMobileMenu()"></div>
                 
                 <ul class="nav-menu" id="navMenu">
                     <li><a href="#home">HOME</a></li>
