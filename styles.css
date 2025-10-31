@@ -2223,38 +2223,39 @@ body {
     }
     
     .contact-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
         padding: 0 10px;
     }
     
     .contact-card {
-        padding: 18px 12px;
+        padding: 15px 10px;
         border-radius: 12px;
         min-height: auto;
     }
     
     .contact-icon {
-        width: 45px;
-        height: 45px;
-        font-size: 1.2rem;
-        margin-bottom: 10px;
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+        margin-bottom: 8px;
     }
     
     .contact-card h3 {
-        font-size: 0.95rem;
-        margin-bottom: 6px;
+        font-size: 0.85rem;
+        margin-bottom: 5px;
+        line-height: 1.2;
     }
     
     .contact-card p {
-        font-size: 0.8rem;
-        margin-bottom: 5px;
+        font-size: 0.7rem;
+        margin-bottom: 4px;
         word-wrap: break-word;
         line-height: 1.3;
     }
     
     .contact-card span {
-        font-size: 0.75rem;
+        font-size: 0.65rem;
         line-height: 1.3;
     }
     
@@ -2262,11 +2263,6 @@ body {
         min-height: 40px;
         padding: 10px 20px;
         font-size: 0.85rem;
-    }
-    
-    /* Contact card full width for 3rd item */
-    .contact-grid .contact-card:nth-child(3) {
-        grid-column: 1 / -1;
     }
     
     /* Cart Mobile */
@@ -2543,47 +2539,47 @@ body {
         max-width: 180px;
     }
     
-    /* Contact Extra Small - Keep 2 Columns */
+    /* Contact Extra Small - Keep 3 Columns */
     .contact-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
         padding: 0 8px;
     }
     
     .contact-card {
-        padding: 15px 10px;
+        padding: 12px 8px;
     }
     
     .contact-icon {
-        width: 40px;
-        height: 40px;
-        font-size: 1.1rem;
-        margin-bottom: 8px;
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+        margin-bottom: 6px;
     }
     
     .contact-card h3 {
-        font-size: 0.85rem;
+        font-size: 0.75rem;
+        margin-bottom: 4px;
+        line-height: 1.2;
     }
     
     .contact-card p {
-        font-size: 0.75rem;
+        font-size: 0.65rem;
         word-wrap: break-word;
         overflow-wrap: break-word;
+        line-height: 1.3;
+        margin-bottom: 3px;
     }
     
     .contact-card span {
-        font-size: 0.7rem;
+        font-size: 0.6rem;
+        line-height: 1.3;
     }
     
     .cta-button {
         min-height: 36px;
         padding: 8px 18px;
         font-size: 0.8rem;
-    }
-    
-    /* Contact card full width for 3rd item */
-    .contact-grid .contact-card:nth-child(3) {
-        grid-column: 1 / -1;
     }
     
     .contact-form {
