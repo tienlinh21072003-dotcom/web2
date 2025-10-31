@@ -357,17 +357,40 @@ function toggleMobileMenu() {
         const navLinks = navMenu.querySelectorAll('a');
         navLinks.forEach(link => {
             link.addEventListener('click', function() {
+                const menuOverlay = document.getElementById('menuOverlay');
                 navMenu.classList.remove('active');
                 hamburgerMenu.classList.remove('active');
+                if (menuOverlay) menuOverlay.classList.remove('active');
                 document.body.style.overflow = '';
+                
+                // Clear inline styles
+                navMenu.style.display = '';
+                navMenu.style.visibility = '';
+                navMenu.style.opacity = '';
+                navMenu.style.transform = '';
             });
         });
         
-        // Close menu when clicking outside
+        // Close menu when clicking on overlay or outside
         document.addEventListener('click', function(e) {
             if (navMenu.classList.contains('active')) {
-                if (!hamburgerMenu.contains(e.target) && !navMenu.contains(e.target)) {
-                    toggleMobileMenu();
+                // Close if clicking on overlay (::before pseudo-element area)
+                // or clicking outside menu and hamburger
+                const isClickOnOverlay = !navMenu.contains(e.target) && !hamburgerMenu.contains(e.target);
+                const isClickOnCloseArea = e.target === document.body || e.target.classList.contains('nav-overlay');
+                
+                if (isClickOnOverlay || isClickOnCloseArea) {
+                    const menuOverlay = document.getElementById('menuOverlay');
+                    navMenu.classList.remove('active');
+                    hamburgerMenu.classList.remove('active');
+                    if (menuOverlay) menuOverlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                    
+                    // Clear inline styles
+                    navMenu.style.display = '';
+                    navMenu.style.visibility = '';
+                    navMenu.style.opacity = '';
+                    navMenu.style.transform = '';
                 }
             }
         });
@@ -375,7 +398,17 @@ function toggleMobileMenu() {
         // Close menu on ESC key
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape' && navMenu.classList.contains('active')) {
-                toggleMobileMenu();
+                const menuOverlay = document.getElementById('menuOverlay');
+                navMenu.classList.remove('active');
+                hamburgerMenu.classList.remove('active');
+                if (menuOverlay) menuOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+                
+                // Clear inline styles
+                navMenu.style.display = '';
+                navMenu.style.visibility = '';
+                navMenu.style.opacity = '';
+                navMenu.style.transform = '';
             }
         });
     }
