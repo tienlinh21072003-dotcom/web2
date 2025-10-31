@@ -134,6 +134,7 @@ body {
     min-height: 44px;
     justify-content: center;
     align-items: center;
+    touch-action: manipulation;
 }
 
 .hamburger-menu span {
@@ -1723,10 +1724,30 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    /* Navigation Mobile */
+    /* Navigation Mobile - Hamburger always visible */
     .hamburger-menu {
         display: flex !important;
         visibility: visible !important;
+        opacity: 1 !important;
+        position: relative !important;
+        width: 44px !important;
+        height: 44px !important;
+        flex-shrink: 0;
+    }
+    
+    /* Ensure hamburger is visible and clickable */
+    .hamburger-menu,
+    .hamburger-menu * {
+        pointer-events: auto !important;
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+    }
+    
+    /* Hide desktop nav menu by default on mobile */
+    .nav-container > .nav-menu:not(.active) {
+        display: none !important;
     }
     
     /* Hide desktop menu on mobile, show only when active */
@@ -1735,9 +1756,10 @@ body {
         top: 70px !important;
         left: 0 !important;
         right: 0 !important;
-        width: 100% !important;
+        width: 100vw !important;
         background: rgba(0, 0, 0, 0.98) !important;
         backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
         flex-direction: column !important;
         gap: 0 !important;
         padding: 15px 0 !important;
@@ -1749,7 +1771,7 @@ body {
         z-index: 9999 !important;
         border-bottom: 2px solid rgba(0, 212, 255, 0.3);
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        max-height: calc(100vh - 70px);
+        max-height: calc(100vh - 70px) !important;
         overflow-y: auto;
         display: flex !important;
         pointer-events: none !important;
@@ -1764,6 +1786,19 @@ body {
         pointer-events: auto !important;
     }
     
+    /* Force menu to be above everything */
+    .nav-menu.active::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 9998;
+        pointer-events: none;
+    }
+    
     .nav-menu li {
         width: 100%;
         border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -1775,11 +1810,18 @@ body {
         font-size: 16px;
         text-align: left;
         width: 100%;
+        color: #fff !important;
+        text-decoration: none !important;
     }
     
     .nav-menu a::after {
         float: right;
         margin-left: 0;
+    }
+    
+    .nav-menu a:hover {
+        background: rgba(0, 212, 255, 0.1);
+        color: #00d4ff !important;
     }
     
     .logo-image {
